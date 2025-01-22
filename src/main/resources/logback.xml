@@ -1,0 +1,13 @@
+<!--스프링 부트 3.1 이상부터 로그 출력 안 되는 문제 해결-->
+<!--ApplicationContext 직접 생성해서 사용하는 경우만 적용됨-->
+<!--추후 CoreApplication 진행 시 root level INFO로 변경-->
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
